@@ -1,91 +1,35 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Container, Card, CardContent, makeStyles, Grid, TextField, Button } from '@material-ui/core';
 import './App.css';
-import QRCode from 'qrcode';
-import QrReader from 'react-qr-reader'
+import GenerateQrCode from './components/GenerateQrCode'
+import UploadToScan from './components/UploadToScan';
+import ScanByCamera from './components/ScanByCamera';
+import Home from "./Home"
 
 function App() {
-  const [ text, setText ] = useState('');
-  const [ imageUrl, setImageUrl ] = useState('');
-  const [ scanResultFile, setScanResultFile ] = useState("");
-  const [ scanResultWebCam, setScanResultWebCam ] = useState('')
+
   const classes = useStyles();
-  const qrRef = useRef(null)
 
-  const generateQrCode = async() => {
-    try {
-      const response = await QRCode.toDataURL(text);
-      setImageUrl(response)
-    }catch (err) {
-      console.log(err)
-    }
-  }
-  
-  const handleErrorFIle = (error) => {
-    console.log(error);
-  }
-
-  const handleScanFIle = (result) => {
-    if (result) {
-      setScanResultFile(result)
-    }
-  }
-
-  const onScanFile = () => {
-    qrRef.current.openImageDialog()
-  }
-
-  const handleErrorWebCam = (error) => {
-    console.log(error)
-  }
-
-  const handleScanWebCam = (result) => {
-    if (result) {
-      setScanResultWebCam(result)
-    }
-  }
   return (
     <Container className={classes.container}>
-      <Card>
-        <h2 className={classes.title}>Generate Download & Scan QR Code with React js</h2>
-        <CardContent>
-          <Grid container spacing={2}>
-            <Grid item x1={4} lg={4} md={6} sm={12} xs={12}>
-              <TextField label="Enter text here" onChange={(e) => {setText(e.target.value)}}/>
-              <Button className={classes.btn} variant="contained" color="primary" onClick={() => generateQrCode()}>Generate</Button>
-              <br/>
-              <br/>
-              <br/>
-              {imageUrl ? ( 
-                <a href={imageUrl} download>
-                    <img src={imageUrl} alt="img"/>
-                </a>) : null}
-            </Grid>
-            <Grid item x1={4} lg={4} md={6} sm={12} xs={12}>
-              <Button className={classes.btn} variant="contained" color="secondary" onClick={onScanFile}>Scan Qr Code</Button>
-              <QrReader
-                  ref={qrRef}
-                  delay={300}
-                  style={{width: '100%'}}
-                  onError={handleErrorFIle}
-                  onScan={handleScanFIle}
-                  legacyMode
-              />
-              <h3>Scanned code: {scanResultFile}</h3>
-            </Grid>
-            <Grid item x1={4} lg={4} md={6} sm={12} xs={12}>
-              <h3>QR Code scan by camera</h3>
-              <QrReader
-                delay={300}
-                style={{width: '100%'}}
-                onError={handleErrorWebCam}
-                onScan={handleScanWebCam}
-              />
-              <h3>Scanned by Camera: {scanResultWebCam}</h3>
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route path="/generateqr">
+            <GenerateQrCode/>
+          </Route>
+          <Route path="/upload">
+            <UploadToScan/>
+          </Route>
+          <Route path="/scan">
+            <ScanByCamera/>
+          </Route>
+        </Switch>
+      </Router>
+       
     </Container>
   );
 }

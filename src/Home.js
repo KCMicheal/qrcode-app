@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
         padding: "0"
     },
     btn: {
-        display: "flex-item",
+        display: "flex",
         color: "#fff",
         borderColor: "#fff"
     }

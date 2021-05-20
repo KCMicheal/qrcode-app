@@ -1,4 +1,4 @@
-import { Container, makeStyles, Grid, Button } from '@material-ui/core';
+import { Container, makeStyles, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './Home.css';
 

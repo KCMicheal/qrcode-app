@@ -1,5 +1,6 @@
 import { Container, makeStyles, Grid, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 
 const Home = () => {
@@ -11,16 +12,16 @@ const Home = () => {
                <h3>QR CODE APP</h3>
            </div>
 
-           <Grid className={classes.jumbo}>
+           <Grid className="jumbo">
                <h1>Generate, Upload & Scan</h1>
            </Grid>
            
            <Grid className={classes.grid}>
-               <Link to="/generateqr" style={{textDecoration: "none"}}><Button className={classes.btn} variant="outlined" size="large">Generate QR Code</Button></Link>
-               <Link to="/upload" style={{textDecoration: "none"}}><Button className={classes.btn} variant="outlined" size="large">Upload & Scan</Button></Link>
-               <Link to="/scan" style={{textDecoration: "none"}}><Button className={classes.btn} variant="outlined" size="large">Scan QR Code</Button></Link>
+               <Link to="/generateqr" style={{textDecoration: "none"}}><button className="btn"  size="large">Generate QR Code</button></Link>
+               <Link to="/upload" style={{textDecoration: "none"}}><button className="btn"  size="large">Upload & Scan</button></Link>
+               <Link to="/scan" style={{textDecoration: "none"}}><button className="btn"  size="large">Scan QR Code</button></Link>
            </Grid>
-           
+           <footer className="footer">Copyright by KCM @2021</footer>
         </Container>
            
     
@@ -29,7 +30,8 @@ const Home = () => {
 
 const useStyles = makeStyles((theme) => ({
     window: {
-        height: "100vh"
+       
+        overflowX: "hidden",
     },
     nav: {
         display: "flex",
@@ -45,31 +47,15 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "2px",
         width: "95%",
         fontWeight: "bolder",
-    },
-    jumbo: {
-        display: "flex",
-        padding: "0px 50% 0px 0px",
-        color: "#fff",
-        minHeight: "50vh",
-        textAlign: "left",
-        justifyContent: "left",
-        alignItems: "center",
-        fontWeight: "900px",
-        fontSize: "40px",
-        textShadow: "300px",
-
+        textShadow: "1px 1px rgba(0, 0, 0, 0.678)",
     },
     grid: {
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
         textAlign: "center",
-        padding: "0"
-    },
-    btn: {
-        display: "flex",
-        color: "#fff",
-        borderColor: "#fff"
+        padding: "15px",
+        flexWrap: "wrap",
     }
 }))
 

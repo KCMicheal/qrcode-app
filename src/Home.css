@@ -1,0 +1,48 @@
+.jumbo {
+  display: flex;
+  padding: 0px 50% 0px 0px;
+  color: #fff;
+  max-height: 50vh;
+  text-align: left;
+  justify-content: left;
+  align-items: center;
+  font-weight: 900px;
+  font-size: 40px;
+  text-shadow: 5px 5px rgba(0, 0, 0, 0.678);
+}
+.btn {
+  display: flex;
+  color: #fff;
+  background: transparent;
+  border: 1px solid#fff;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 6px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: white;
+  border: 1px solid #000;
+  transition: .8s ease;
+  color: black;
+  cursor: pointer;
+}
+
+.footer {
+  height: 100px;
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  bottom: 0;
+  text-align: center;
+  color: #fff;
+  justify-content: center;
+}
+@media only screen and (max-width: 480px) {
+    .jumbo {
+      font-size: 20px;
+      padding: 10px;
+    }
+  }

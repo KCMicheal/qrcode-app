@@ -8,7 +8,7 @@
   align-items: center;
   font-weight: 900px;
   font-size: 40px;
-  text-shadow: 5px 5px rgba(0, 0, 0, 0.678);
+  text-shadow: 5px 5px 10px rgba(7, 7, 7, 0.959);
 }
 .btn {
   display: flex;
@@ -30,9 +30,12 @@
   cursor: pointer;
 }
 
+
 .footer {
   height: 100px;
+  font-size: 8px;
   position: absolute;
+  margin-left: 30%;
   display: flex;
   align-items: flex-end;
   bottom: 0;

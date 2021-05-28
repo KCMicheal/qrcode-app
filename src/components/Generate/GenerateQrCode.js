@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Container, Grid, makeStyles, TextField, Button } from '@material-ui/core';
+import { Container, Grid, TextField } from '@material-ui/core';
 import QRCode from 'qrcode';
 import './GenerateQrCode.css'
 
 const GenerateQrCode = () => {
     const [ text, setText ] = useState('');
     const [ imageUrl, setImageUrl ] = useState('');
-    const classes = useStyles();
+    
 
     const generateQrCode = async() => {
         try {
@@ -20,12 +20,12 @@ const GenerateQrCode = () => {
     return (
         <Container>
             <Grid className="text">
-              <TextField label="Enter text, link, phone no. etc" color="secondary" fullWidth id="outlined-basic" variant="outlined" onChange={(e) => {setText(e.target.value)}}/>
+              <TextField label="Enter text, link, etc" color="primary" id="outlined-basic" fullWidth variant="outlined" onChange={(e) => {setText(e.target.value)}}/>
             </Grid>
             <Grid className="text1">
-              <Button className={classes.btn} variant="contained" color="primary" onClick={() => generateQrCode()}>Generate</Button>
+              <button className="btn" onClick={() => generateQrCode()}>Generate</button>
             </Grid>
-              <Grid>
+              <Grid className="image">
               {imageUrl ? ( 
                   <a href={imageUrl} download>
                       <img src={imageUrl} alt="img"/>
@@ -35,12 +35,6 @@ const GenerateQrCode = () => {
     )
 }
 
-const useStyles = makeStyles((theme) => ({
-    card: {
-        alignItems: "center",
-        display: "flex",
-        background: "#fff"
-    }
-}))
+
 
 export default GenerateQrCode

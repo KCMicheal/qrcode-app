@@ -1,14 +1,39 @@
+
 .text {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 35vh;
-    background: rgba(255, 255, 255, 0.062);
+    background: rgba(255, 255, 255, 0);
     border-radius: 6px;
+		padding: 0px 25vw 0px 25vw
 }
 
 .text1 {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+.btn {
+  display: flex;
+  color: #fff;
+  background: transparent;
+  border: 1px solid#fff;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 6px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+}
+.btn:hover {
+  background: white;
+  border: 1px solid #000;
+  transition: .8s ease;
+  color: black;
+  cursor: pointer;
+}
+.image {
+	display: flex;
+	justify-content: center;
+	height: 100px;
 }
